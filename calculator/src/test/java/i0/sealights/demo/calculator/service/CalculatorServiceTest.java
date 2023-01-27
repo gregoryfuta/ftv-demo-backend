@@ -39,7 +39,7 @@ class CalculatorServiceTest {
         });
 
         //then
-        assertEquals(exception.getMessage(), "Invalid math exception: \" blank expression \"");
+        assertEquals(exception.getMessage(), "Invalid math exception: ' blank expression '");
     }
 
     @Test
@@ -50,7 +50,7 @@ class CalculatorServiceTest {
         });
 
         //then
-        assertEquals(exception.getMessage(), "Invalid math exception: \" blank expression \"");
+        assertEquals(exception.getMessage(), "Invalid math exception: ' blank expression '");
     }
 
     public static Stream<Arguments> blankExpressions() {
