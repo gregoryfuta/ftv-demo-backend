@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+    gateway:
+        container_name: gateway-server
+        build: gateway
+        ports:
+        - "9080:8080"
+        networks:
+        - spring-cloud-network
+    calculator:
+        container_name: calculator-server
+        build: calculator
+        ports:
+        - "9081:8080"
+        networks:
+        - spring-cloud-network
+    summator:
+        container_name: summator-server
+        build: summator
+        ports:
+        - "9082:8080"
+        networks:
+        - spring-cloud-network
+networks:
+    spring-cloud-network:
+        driver: bridge
