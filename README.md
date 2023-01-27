@@ -83,3 +83,16 @@ curl -X GET --location "http://localhost:9082/sum/geometric?first=1&ratio=1"
 > HTTP/1.1 400
 > {"result":"Missing required argument: 'count'"}
 ```
+
+### The Gateway application
+
+The gateway application is a proxy to Summator and Calsulator. It exposes the same API except that all the URLs are prefixed with the `/api` char sequence.
+
+Form the command line type
+
+```shell
+cd calculator
+docker build -t sealights/backend-demo-gateway .
+docker run -it  -p 9080:8080 sealights/backend-demo-gateway
+```
+
