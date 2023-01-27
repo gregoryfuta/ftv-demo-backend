@@ -1,5 +1,36 @@
 # Backend for Sealights CD agent demo
 
+## TL;DR
+
+Run from the command line:
+
+```shell
+docker-compose up --build
+```
+
+Wait till the servers will be build and docker will run
+
+Execute `curl` calls form the command line:
+
+```shell
+curl -X GET --location "http://localhost:9080/api/sum/geometric?first=1&ratio=0.5&count=5"
+
+curl -X GET --location "http://localhost:9080/api/evaluate/3*7"
+    
+curl -X GET --location "http://localhost:9080/api/evaluate/(3*7+4)*0.2"
+    
+curl -X GET --location "http://localhost:9080/api/evaluate/3*cos(2*3.141592653589793238)"
+
+curl -X GET --location "http://localhost:9080/api/evaluate/unknowFunction(2)"
+```
+
+Close running containers with
+
+```shell
+docker-compose down
+```
+
+
 ## Prepare and run the applications
 
 Run the following instructions to launch backend application running in the containers

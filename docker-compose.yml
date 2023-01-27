@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+    gateway:
+        container_name: gateway-server
+        build: gateway
+        ports:
+        - "9080:8080"
+        networks:
+        - ftv-demo-network
+    calculator:
+        container_name: calculator-server
+        build: calculator
+        ports:
+        - "9081:8080"
+        networks:
+        - ftv-demo-network
+    summator:
+        container_name: summator-server
+        build: summator
+        ports:
+        - "9082:8080"
+        networks:
+        - ftv-demo-network
+networks:
+    ftv-demo-network:
+        driver: bridge
