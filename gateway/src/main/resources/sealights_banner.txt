@@ -1,6 +1,6 @@
                                                                                                                                 
                                                                                                                                 
-    Spring Boot Application  CALCULATOR                    ,@@#  %
+    Spring Boot Application  GATEWAY SERVICE               ,@@#  %
     made by Sealights                                    @@@       ,
                                                         *@@@         ,                                                          
              @@@@@@@@@                                 #@@@           *                   @@/                                   

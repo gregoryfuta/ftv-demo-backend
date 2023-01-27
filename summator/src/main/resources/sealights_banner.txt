@@ -1,6 +1,6 @@
                                                                                                                                 
                                                                                                                                 
-    Spring Boot Application                                 ,@@#  %
+    Spring Boot Application  SUMMATOR                       ,@@#  %
     made by Sealights                                    @@@       ,
                                                         *@@@         ,                                                          
              @@@@@@@@@                                 #@@@           *                   @@/                                   
