@@ -62,6 +62,12 @@ class CalculatorServiceTest {
     private static Stream<Arguments> testArguments() {
         return Stream.of(
             Arguments.of("2 * 2", 4.0),
+            Arguments.of("2 * 4", 8.0),
+            Arguments.of("13 - 9", 4.0),
+            Arguments.of("15 - 2", 13.0),
+            Arguments.of("3 * 3 + 4", 13.0),
+            Arguments.of("(3 + 3) * 3", 18.0),
+            Arguments.of("13 - 9", 4.0),
             Arguments.of("13 - 9", 4.0),
             Arguments.of("cos(0.0)", 1.0),
             Arguments.of("100 / 20", 5.0)
