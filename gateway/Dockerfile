@@ -3,6 +3,8 @@ FROM gradle:7.6.0-jdk11-alpine AS gradle
 COPY ./src src/
 COPY ./settings.gradle settings.gradle
 COPY ./build.gradle build.gradle
+RUN ls -l
+
 
 RUN gradle clean build
 
@@ -28,3 +30,4 @@ EXPOSE 8080
 
 WORKDIR /opt/app
 CMD ["/opt/app/run_app.sh", "gateway.jar"]
+#CMD ["java", "-jar","gateway.jar"]
