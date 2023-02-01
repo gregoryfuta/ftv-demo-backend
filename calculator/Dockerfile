@@ -10,7 +10,6 @@ FROM amazoncorretto:11-alpine-jdk
 
 RUN mkdir /opt/app
 WORKDIR /opt/app
-RUN ls -l
 
 # Copy built spring application
 COPY --from=gradle /home/gradle/build/libs/calculator-0.0.1-SNAPSHOT.jar ./calculator.jar
