@@ -1,6 +1,8 @@
 version: "3.9"
 services:
     gateway:
+        env_file:
+        - parameters.env
         container_name: gateway-server
         build: gateway
         ports:
@@ -8,6 +10,8 @@ services:
         networks:
         - ftv-demo-network
     calculator:
+        env_file:
+        - parameters.env
         container_name: calculator-server
         build: calculator
         ports:
@@ -15,6 +19,8 @@ services:
         networks:
         - ftv-demo-network
     summator:
+        env_file:
+        - parameters.env
         container_name: summator-server
         build: summator
         ports:
