@@ -35,6 +35,7 @@ Run
 ```shell
 npm run merge && npm run deploy
 ```
+**IMPORTANT: Run the above command first before running `docker-compose up --build`**
 
 **IMPORTANT:** Do not delete `sltoken.txt` after the build scan, it is used in the Gauge tests.
 
