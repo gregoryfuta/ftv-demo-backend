@@ -24,6 +24,10 @@ public class ApiGatewayController {
     @GetMapping("/api/{*uri}")
     public ResponseEntity<String> route(HttpServletRequest request) {
 
+        request.getHeaderNames().asIterator().forEachRemaining(element -> {
+            System.out.println("HEADER: " + element + " > " + request.getHeader(element));
+        });
+
         final String serviceUrl = hostResolver.resolveServiceUrl(request.getRequestURI());
         final Map<String, String[]> parameterMap = request.getParameterMap();
 

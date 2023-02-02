@@ -29,7 +29,7 @@ module.exports = {
   createTestSession: async () => {
     const { data } = await testSessionsV1Instance.post("/", {
       testStage: "Gauge Tests",
-      bsid: buildSessionId,
+      labId: buildSessionId,
     });
     return data;
   },

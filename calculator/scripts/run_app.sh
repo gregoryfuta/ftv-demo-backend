@@ -16,6 +16,7 @@ java -Dsl.log.level=DEBUG "$DEBUG $LOGGING" \
   -Dsl.workspace=. \
   -Dsl.featuresData.codeCoverageManagerVersion=v2 \
   -Dsl.otel.enabled=true -Dsl.otel.loadEmbeddedAgent=true \
+  -Dotel.javaagent.debug=true -Dotel.propagators=tracecontext,baggage,xray \
   -Dsl.sendInitFootprints=true \
   -Dsl.tags=demo \
   -Dsl.featuresData.enableLineCoverage=false \

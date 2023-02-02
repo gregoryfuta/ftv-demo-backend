@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "test": "gauge run specs/"
+    "test": "C:\\programy\\Gauge\\bin\\gauge.exe run specs/"
   },
   "dependencies": {
     "axios": "^1.2.5",

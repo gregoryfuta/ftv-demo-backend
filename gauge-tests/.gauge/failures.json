@@ -2,7 +2,5 @@
 	"Args": [
 		"run"
 	],
-	"FailedItems": [
-		"specs/example.spec:16"
-	]
+	"FailedItems": []
 }
