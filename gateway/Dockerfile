@@ -3,7 +3,6 @@ FROM gradle:7.6.0-jdk11-alpine AS gradle
 COPY ./src src/
 COPY ./settings.gradle settings.gradle
 COPY ./build.gradle build.gradle
-RUN ls -l
 
 
 RUN gradle clean build
