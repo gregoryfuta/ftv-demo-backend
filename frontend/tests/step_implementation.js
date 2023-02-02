@@ -73,11 +73,12 @@ afterScenario(async (scenario) => {
 afterSuite(async () => {
   // End the current test session after the running suite
   await SLService.endTestSession(testSession);
-  function sleep(ms) {
-    return new Promise((resolve) => setTimeout(resolve, ms));
-  }
-
-  await sleep(5 * 1000);
+  await evaluate(
+      "",
+      async (e) => {
+        await window.$SealightsAgent.sendAllFootprints();
+      },
+  );
   await closeBrowser();
 });
 
