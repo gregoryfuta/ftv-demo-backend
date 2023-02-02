@@ -42,7 +42,7 @@ beforeScenario(async (scenario) => {
       const testName = args.scenario.currentScenario.name;
       const customEvent = new CustomEvent("set:baggage", {
         detail: {
-          "x-sl-test-name": testName,
+          "x-sl-test-name": encodeURI(testName),
           "x-sl-test-session-id": args.testSession,
         },
       });
