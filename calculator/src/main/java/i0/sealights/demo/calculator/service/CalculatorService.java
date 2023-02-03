@@ -10,7 +10,7 @@ public class CalculatorService {
         this.expressionValidator = expressionValidator;
     }
 
-    public double eval(final String expression) {
+    public double evaluate(final String expression) {
         expressionValidator.validate(expression);
         final DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
 

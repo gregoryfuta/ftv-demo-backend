@@ -27,7 +27,7 @@ public class CalculatorController {
             System.out.println("HEADER: " + element + " > " + servletRequest.getHeader(element));
         });
 
-        final double result = calculatorService.eval(expression);
+        final double result = calculatorService.evaluate(expression);
         return new Result(result);
     }
 

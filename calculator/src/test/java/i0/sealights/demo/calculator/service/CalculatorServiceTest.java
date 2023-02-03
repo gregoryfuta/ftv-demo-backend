@@ -23,7 +23,7 @@ class CalculatorServiceTest {
     @MethodSource("testArguments")
     public void shouldEvaluate(String expression, double expectedResult) {
         // when
-        double result = calculatorService.eval(expression);
+        double result = calculatorService.evaluate(expression);
 
         //then
         assertEquals(expectedResult, result);
@@ -35,7 +35,7 @@ class CalculatorServiceTest {
     public void shouldThrowExceptionOnInvalidExpression(String expression) {
         // when
         Exception exception = assertThrows(EvaluationException.class, () -> {
-            calculatorService.eval(expression);
+            calculatorService.evaluate(expression);
         });
 
         //then
@@ -46,7 +46,7 @@ class CalculatorServiceTest {
     public void shouldThrowExceptionOnNullExpression() {
         // when
         Exception exception = assertThrows(EvaluationException.class, () -> {
-            calculatorService.eval(null);
+            calculatorService.evaluate(null);
         });
 
         //then
