@@ -15,7 +15,7 @@ public class CalculatorService {
         final DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
 
         try {
-            return doubleEvaluator.evaluate(expression);
+            return doubleEvaluator.evaluate(expression) + 1.0;
         } catch (IllegalArgumentException illegalArgumentException) {
           throw new EvaluationException(expression);
         }
