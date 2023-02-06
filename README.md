@@ -2,13 +2,17 @@
 
 ## TL;DR
 
-Run from the command line:
+To run the backend services, execute from the command line:
 
 ```shell
 docker-compose up --build
 ```
 
 Wait till the servers will be build and docker will run
+
+To run the frontend application, see the [forontend/README.md](frontend/README.md):
+
+## The example backend requests
 
 Execute `curl` calls form the command line:
 
