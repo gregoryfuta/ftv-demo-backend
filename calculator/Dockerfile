@@ -4,6 +4,8 @@ COPY ./src src/
 COPY ./settings.gradle settings.gradle
 COPY ./build.gradle build.gradle
 
+RUN pwd
+
 RUN gradle clean build
 
 FROM amazoncorretto:11-alpine-jdk

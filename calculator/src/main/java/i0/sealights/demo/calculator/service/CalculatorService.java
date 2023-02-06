@@ -13,11 +13,31 @@ public class CalculatorService {
     public double eval(final String expression) {
         expressionValidator.validate(expression);
         final DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
-
+        reportMagicNumbers(expression);
+        Double result;
         try {
-            return doubleEvaluator.evaluate(expression);
+            result = doubleEvaluator.evaluate(expression);
         } catch (IllegalArgumentException illegalArgumentException) {
           throw new EvaluationException(expression);
         }
+        return result;
+    }
+
+    private void reportMagicNumbers(String expression) {
+        if (expression.contains("21")) {
+            reportTwentyOne();
+        }
+
+        if (expression.contains("13")) {
+            reportThirteen();
+        }
+    }
+
+    private void reportThirteen() {
+        System.out.println("Number 13 was in the expression.");
+    }
+
+    private void reportTwentyOne() {
+        System.out.println("Number 21 was in the expression.");
     }
 }
