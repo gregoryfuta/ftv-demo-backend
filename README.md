@@ -2,13 +2,17 @@
 
 ## TL;DR
 
-Run from the command line:
+To run the backend services, execute from the command line:
 
 ```shell
 docker-compose up --build
 ```
 
 Wait till the servers will be build and docker will run
+
+To run the frontend application, see the [forontend/README.md](frontend/README.md):
+
+## The example backend requests
 
 Execute `curl` calls form the command line:
 
@@ -127,3 +131,18 @@ docker build -t sealights/backend-demo-gateway .
 docker run -it  -p 9080:8080 sealights/backend-demo-gateway
 ```
 
+## Running using `run.sh`
+Open `run.sh` and replace `--appName` value
+
+```shell
+chmod +x run.sh
+./run.sh
+```
+Wait for the above script to finish then:
+```shell
+docker-compose up
+```
+And then run the Gauge tests:
+```shell
+cd frontend && npm run test
+```
