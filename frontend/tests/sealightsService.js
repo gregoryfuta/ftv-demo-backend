@@ -23,10 +23,10 @@ const testSessionsV2Instance = axios.create({
 
 module.exports = {
   createTestSession: async () => {
-    console.log(baseUrl)
+    console.log(baseUrl);
     const { data } = await testSessionsV1Instance.post("/", {
       testStage: "Gauge Tests",
-      labId: "integ_master_test_new_lab",
+      labId: process.env.labId,
     });
     return data;
   },

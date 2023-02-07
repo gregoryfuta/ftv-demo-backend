@@ -132,6 +132,7 @@ docker run -it  -p 9080:8080 sealights/backend-demo-gateway
 ```
 
 ## Running using `run.sh`
+Make sure you place `sltoken.txt` under `/scripts` <br>
 Open `run.sh` and replace `--appName` value
 
 ```shell
