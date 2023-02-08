@@ -1,6 +1,7 @@
 const fs = require("fs");
 const axios = require("axios");
 const jwtDecode = require("jwt-decode");
+const { exec } = require("child_process");
 
 const DEFAULT_BRANCH = "master";
 const DEFAULT_TEST_ENV = "testEnv";
@@ -28,9 +29,8 @@ const testEnv = argv.testEnv ?? DEFAULT_TEST_ENV;
     {
       appName,
       branchName,
-      testEnv,
-      isHidden: true,
-      cdOnly: true,
+      isHidden: false,
+      isFtv: true,
     },
     {
       headers: {
@@ -44,28 +44,36 @@ const testEnv = argv.testEnv ?? DEFAULT_TEST_ENV;
   console.log(labId);
   console.log(`Successfully created lab with labId: ${labId}`);
   console.log(`Successfully saved labId to file: ${fileExport}.json`);
-  fs.writeFileSync(
-    `${__dirname}/${fileExport}.json`,
-    JSON.stringify(
-      {
-        labId,
-        appName,
-        branchName,
-        testEnv,
-      },
-      null,
-      4
-    )
-  );
-  if (replace !== "false") {
-    let parametersEnv = fs
-      .readFileSync(`${__dirname}/../parameters.env`)
-      .toString();
-    parametersEnv = parametersEnv
-      .replace(new RegExp(/(?<=SL_LAB_ID=).*/gm), labId)
-      .replace(new RegExp(/(?<=SL_BRANCH_NAME=).*/gm), branchName)
-      .replace(new RegExp(/(?<=SL_APPNAME=).*/gm), appName);
-    fs.writeFileSync(`${__dirname}/../parameters.env`, parametersEnv);
-  }
+  exec(`date +"%y%m%d_%H%M"`, (error, stdout, stderr) => {
+    fs.writeFileSync(
+      `${__dirname}/${fileExport}.json`,
+      JSON.stringify(
+        {
+          labId,
+          appName,
+          branchName,
+          testEnv,
+          buildName: `build_${stdout.replace(/[\n\t\r]/g, "")}`,
+        },
+        null,
+        4
+      )
+    );
+    if (replace !== "false") {
+      let parametersEnv = fs
+        .readFileSync(`${__dirname}/../parameters.env`)
+        .toString();
+      parametersEnv = parametersEnv
+        .replace(new RegExp(/(?<=SL_LAB_ID=).*/gm), labId)
+        .replace(new RegExp(/(?<=SL_BRANCH_NAME=).*/gm), branchName)
+        .replace(new RegExp(/(?<=SL_APPNAME=).*/gm), appName)
+        .replace(
+          new RegExp(/(?<=SL_BUILD_NAME=).*/gm),
+          `build_${stdout.replace(/[\n\t\r]/g, "")}`
+        );
+      fs.writeFileSync(`${__dirname}/../parameters.env`, parametersEnv);
+    }
+  });
+
   return labId;
 })();

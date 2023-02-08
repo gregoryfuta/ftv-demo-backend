@@ -21,13 +21,22 @@ const testSessionsV2Instance = axios.create({
   },
 });
 
+const bsId = fs
+  .readFileSync(`${__dirname}/../../scripts/integrationBSID`)
+  .toString();
+const labData = JSON.parse(
+  fs.readFileSync(`${__dirname}/../../scripts/slLabData.json`).toString()
+);
 module.exports = {
   createTestSession: async () => {
-    console.log(baseUrl);
-    const { data } = await testSessionsV1Instance.post("/", {
+    const sessionData = {
       testStage: "Gauge Tests",
-      labId: process.env.labId,
-    });
+      labId: labData.labId,
+      bsId,
+    };
+    console.log(baseUrl);
+    console.log(`Starting test session with data:`, sessionData);
+    const { data } = await testSessionsV1Instance.post("/", sessionData);
     return data;
   },
   endTestSession: (testSessionId) => {

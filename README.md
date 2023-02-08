@@ -131,19 +131,3 @@ docker build -t sealights/backend-demo-gateway .
 docker run -it  -p 9080:8080 sealights/backend-demo-gateway
 ```
 
-## Running using `run.sh`
-Make sure you place `sltoken.txt` under `/scripts` <br>
-Open `run.sh` and replace `--appName` value
-
-```shell
-chmod +x run.sh
-./run.sh
-```
-Wait for the above script to finish then:
-```shell
-docker-compose up
-```
-And then run the Gauge tests:
-```shell
-cd frontend && npm run test
-```
