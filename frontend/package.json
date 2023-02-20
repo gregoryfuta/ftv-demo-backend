@@ -6,7 +6,7 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "gauge run specs/",
+    "test": "c:\\programy\\Gauge\\bin\\gauge run specs/",
     "merge": "cp agent-source/browser-agent-all.js ./sl_web",
     "deploy": "cp -a sl_web/. ../gateway/src/main/resources/static/"
   },
