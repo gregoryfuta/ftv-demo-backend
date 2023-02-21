@@ -39,11 +39,14 @@ PATTERN="s/CALC_BUILD_NAME=build_\([0-9]\)*/CALC_BUILD_NAME=build_$BUILD_NO/g"
 sed -i $PATTERN parameters.env
 
 ## LAB_ID setting
+echo "Modifying the docker-compose parameters.env"
 
 PATTERN="s/SL_LAB_ID=\([a-zA-Z0-9_]\)*/SL_LAB_ID=$LAB_ID/g"
 sed -i $PATTERN parameters.env
 
 ## prepare tests
+
+echo "Modifying the test POM"
 
 cd ../sellenium-philips-mvn
 
