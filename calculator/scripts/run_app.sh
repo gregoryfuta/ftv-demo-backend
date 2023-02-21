@@ -4,9 +4,7 @@
 ## docker run --env-file=FILE ...
 # SL_TOKEN=token
 # SL_LAB_ID=a
-# SL_BUILD_NAME=b
 # SL_BRANCH_NAME=c
-# SL_APPNAME=d
 
 DEBUG=-Dsl.httpDebugLog=yes
 LOGGING=-Dsl.log.toConsole=true
@@ -27,7 +25,7 @@ java -Dsl.log.level=DEBUG "$DEBUG $LOGGING" \
   -Dsl.includes="$PACKAGES" \
   -Dsl.token="$SL_TOKEN" \
   -Dsl.labId="$SL_LAB_ID" \
-  -Dsl.buildName="$SL_BUILD_NAME" \
+  -Dsl.buildName="$CALC_BUILD_NAME" \
   -Dsl.branchName="$SL_BRANCH_NAME" \
   -Dsl.appName="$CALC_APPNAME" \
   -javaagent:./sl-cd-agent.jar \

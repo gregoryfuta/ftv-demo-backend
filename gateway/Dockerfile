@@ -23,7 +23,8 @@ RUN mv java-agent-bootstrapper-4.0.2216.jar sl-test-listener.jar
 
 # Copy run script
 COPY --chmod=777 scripts/run_app.sh run_app.sh
-COPY --chmod=777 scripts/execution.sh execution.sh
+COPY --chmod=777 scripts/execution-start.sh execution-start.sh
+COPY --chmod=777 scripts/execution-end.sh execution-end.sh
 
 EXPOSE 8080
 

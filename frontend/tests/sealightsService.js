@@ -25,7 +25,7 @@ module.exports = {
   createTestSession: async () => {
     const { data } = await testSessionsV1Instance.post("/", {
       testStage: "Gauge Tests",
-      labId: "integ_master_integrDemoTest@integrDemoTestEnv",
+      labId: "integ_testing_cucumberDemo3",
     });
     return data;
   },

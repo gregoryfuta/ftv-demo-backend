@@ -1,0 +1,32 @@
+package i0.sealights.demo.calculator.service;
+
+import com.fathzer.soft.javaluator.DoubleEvaluator;
+
+public class CalculatorService {
+
+    final ExpressionValidator expressionValidator;
+
+    public CalculatorService(ExpressionValidator expressionValidator) {
+        this.expressionValidator = expressionValidator;
+    }
+
+    public double eval(final String expression) {
+        expressionValidator.validate(expression);
+        final DoubleEvaluator doubleEvaluator = new DoubleEvaluator();
+
+        System.out.println("Modified +12");
+
+        if ("test".equals(expression)) {
+            System.out.println(expression + "23");
+        }
+
+        double response;
+        try {
+            response = doubleEvaluator.evaluate(expression);
+        } catch (IllegalArgumentException illegalArgumentException) {
+          throw new EvaluationException(expression);
+        }
+
+        return response;
+    }
+}
