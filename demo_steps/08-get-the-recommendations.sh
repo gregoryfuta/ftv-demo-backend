@@ -11,4 +11,4 @@ fi
 BUILD_SESSION_ID=$1
 TOKEN=`cat ../frontend/sltoken.txt`
 
-curl --location --request GET 'https://dev-integ-ftv2-gw.dev.sealights.co/sl-api/v1/tia/builds/'"$BUILD_SESSION_ID"'/test-stages/Cucumber%20Demo-3/recommendations' --header 'Authorization: Bearer '"$TOKEN" --header 'Content-Type: application/json' | json_pp
+curl --location --request GET 'https://dev-kristijan-demo-gw.dev.sealights.co/api/v3/test-exclusions/'"$BUILD_SESSION_ID"'/Cucumber%20Demo' --header 'Authorization: Bearer '"$TOKEN" --header 'Content-Type: application/json' | json_pp
