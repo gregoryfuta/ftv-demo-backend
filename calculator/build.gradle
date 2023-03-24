@@ -1,5 +1,6 @@
 plugins {
 	id 'java'
+	id 'war'
 	id 'org.springframework.boot' version '2.7.8'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 }
@@ -13,8 +14,11 @@ repositories {
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	implementation 'com.fathzer:javaluator:3.0.3'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation("com.google.guava:guava:31.1-jre")
+//	api("com.google.guava:guava:31.1-jre")
 }
 
 tasks.named('test') {

@@ -1,5 +1,6 @@
-GET http://localhost:9081/evaluate/3*7
+GET http://localhost:8080/app/evaluate/1+2
 Accept: application/json
+Baggage: x-sl-test-name=test-method-one,x-sl-test-session-id=fa69e0cf-b6cb-42bd-b879-5ee294ea7750
 
 ###
 

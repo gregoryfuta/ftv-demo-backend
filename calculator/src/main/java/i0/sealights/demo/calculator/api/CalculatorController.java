@@ -2,6 +2,7 @@ package i0.sealights.demo.calculator.api;
 
 import i0.sealights.demo.calculator.service.CalculatorService;
 import i0.sealights.demo.calculator.service.EvaluationException;
+import java.util.Enumeration;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -18,14 +19,27 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
+    @GetMapping("/echo/{name}")
+    public String echo(final @PathVariable("name") String name) {
+        return "Hello, " + name;
+    }
+    
     @GetMapping("/evaluate/{expression}")
     public Result evaluateExpression(final @PathVariable("expression") String expression,
         HttpServletRequest servletRequest) {
 
-        // todo: need for fast debugging - can be removed after demo
-        servletRequest.getHeaderNames().asIterator().forEachRemaining(element -> {
+        Thread thread = Thread.currentThread();
+        System.out.println("XXX " + thread.getThreadGroup() + ", " 
+            + thread.getName() + ", "
+            + thread.getId()
+            );
+        
+        Enumeration<String> headerNames = servletRequest.getHeaderNames();
+
+        while (headerNames.hasMoreElements()) {
+            String element = headerNames.nextElement();
             System.out.println("HEADER: " + element + " > " + servletRequest.getHeader(element));
-        });
+        }
 
         final double result = calculatorService.eval(expression);
         return new Result(result);

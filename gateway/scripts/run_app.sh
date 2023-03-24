@@ -9,11 +9,12 @@
 DEBUG=-Dsl.httpDebugLog=yes
 LOGGING=-Dsl.log.toConsole=true
 PACKAGES="i0.sealights.demo.gateway*"
+INSTRUMENTATION_OPTS=-Dotel.instrumentation.http-url-connection.enabled=false
 
 java -Dsl.log.level=DEBUG "$DEBUG $LOGGING" \
   -Dsl.workspace=. \
   -Dsl.featuresData.codeCoverageManagerVersion=v2 \
-  -Dsl.otel.enabled=true -Dsl.otel.loadEmbeddedAgent=true \
+  -Dsl.otel.enabled=true -Dsl.otel.loadEmbeddedAgent=true "$INSTRUMENTATION_OPTS" \
   -Dsl.sendInitFootprints=true \
   -Dsl.tags=demo \
   -Dsl.featuresData.enableLineCoverage=false \
