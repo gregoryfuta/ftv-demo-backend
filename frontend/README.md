@@ -25,7 +25,7 @@ npx slnodejs config --tokenfile sltoken.txt --appName "React Calculator" --branc
 ```
 If this command ran successfully you should have `buildSessionId` file in the same folder and can continue to scan the build:
 ```shell
-npx slnodejs scan --workspacepath ./dist --tokenfile sltoken.txt --buildsessionidfile buildSessionId --labid integ_master_integrDemoTest@integrDemoTestEnv --scm none --instrumentForBrowsers --enableOpenTelemetry --outputpath "sl_web"
+npx slnodejs scan --workspacepath ./dist --tokenfile sltoken.txt --buildsessionidfile buildSessionId --labid integ_testing_gfColoredBrowser --scm none --instrumentForBrowsers --enableOpenTelemetry --outputpath "sl_web"
 ```
 **IMPORTANT**: Make sure you are running `slnodejs >= 6.1.278` with `npx`, to clear cache use `npx clear-npx-cache`.
 
